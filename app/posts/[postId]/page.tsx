@@ -6,6 +6,13 @@ type Props = {
     postId: string;
   };
 };
+
+export function generateStaticParams() {
+  const data = getPostsData();
+  return data.map((post) => {
+    id: post.id;
+  });
+}
 export function generateMetadata({ params: { postId } }: Props) {
   const data = getPostsData();
   const post = data.find((post) => post.id === postId);
